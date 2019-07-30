@@ -3,6 +3,9 @@
 - name: Network Getting Started First Playbook
   connection: network_cli
   gather_facts: false
+  vars_prompt:
+   - name: "Version"
+     prompt: "Which version Do you want to install?"
   hosts: all
   tasks:
 
@@ -13,3 +16,4 @@
     - name: Display the config
       debug:
         msg: "The hostname is {{ ansible_net_hostname }} and the OS is {{ ansible_net_version }}"
+        msg: "{{ Version }}"
