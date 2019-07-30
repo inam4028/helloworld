@@ -10,6 +10,7 @@
     - name: Get config for NxOS devices
       nxos_facts:
         gather_subset: all
+      when: ansible_network_os == 'nxos'
         
     - name: Display the config
       debug:
